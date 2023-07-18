@@ -26,7 +26,7 @@ btn.onclick = function () {
     alert("Please select a valid number");
   } else {
     console.log(SquareNumber);
-    NewDiv(container, Math.sqrt(SquareNumber));
+    NewDiv(container, SquareNumber);
 
     const Sketch = document.querySelectorAll("#Sketch");
     Sketch.forEach((div) => {
