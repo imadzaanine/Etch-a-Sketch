@@ -10,13 +10,27 @@ function NewDiv(container, gridValue) {
   }
 }
 let color = "black";
-function ChangeBackgroundColor(event) {
-    const div = event.target;
-    div.style.backgroundColor = color;
-  }
 const container = document.querySelector(".container");
-NewDiv(container, 16);
-const Sketch = document.querySelectorAll("#Sketch");
-Sketch.forEach(div => {
-  div.addEventListener("mouseenter", ChangeBackgroundColor);
-});
+function ChangeBackgroundColor(event) {
+  const div = event.target;
+  div.style.backgroundColor = color;
+}
+const btn = document.querySelector("#btn");
+btn.onclick = function () {
+  const SelectedNumber = prompt("Select a number from 1 to 100");
+  const SquareNumber = parseInt(SelectedNumber);
+  if (SelectedNumber < 0 || SelectedNumber > 100) {
+    alert("The selected number is not in the range");
+  }
+  if (isNaN(SelectedNumber)) {
+    alert("Please select a valid number");
+  } else {
+    console.log(SquareNumber);
+    NewDiv(container, Math.sqrt(SquareNumber));
+
+    const Sketch = document.querySelectorAll("#Sketch");
+    Sketch.forEach((div) => {
+      div.addEventListener("mouseenter", ChangeBackgroundColor);
+    });
+  }
+};
