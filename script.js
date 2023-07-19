@@ -9,6 +9,13 @@ function NewDiv(container, gridValue) {
     }
   }
 }
+const slide = document.querySelector('#slider');
+const resetbtn = document.querySelector('#reset');
+const label = document.querySelector('#slideLable');
+label.innerHTML = `${slide.value}X${slide.value}`;
+slide.oninput = function() {
+  label.innerHTML = `${this.value}X${this.value}`;
+};
 let color = "black";
 const container = document.querySelector(".container");
 function ChangeBackgroundColor(event) {
@@ -34,3 +41,4 @@ btn.onclick = function () {
     });
   }
 };
+
