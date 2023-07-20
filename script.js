@@ -27,14 +27,16 @@ const slide = document.querySelector('#slider');
 const resetbtn = document.querySelector('#reset');
 const label = document.querySelector('#slideLable');
 const container = document.querySelector(".container");
-const Sketch = document.querySelectorAll("#Sketch");
+
 let color = "black";
 label.innerHTML = `${slide.value}X${slide.value}`;
 
 NewDiv(container,slide.value);
+const Sketch = document.querySelectorAll("#Sketch");
 Sketch.forEach((div) => {
   div.addEventListener("mouseenter", ChangeBackgroundColor);
 });
+
 
 
 slide.oninput = function() {
@@ -47,7 +49,6 @@ slide.oninput = function() {
       div.addEventListener("mouseenter", ChangeBackgroundColor);
     });
     };
-
 ;
 
 
