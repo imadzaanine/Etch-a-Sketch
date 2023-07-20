@@ -9,36 +9,48 @@ function NewDiv(container, gridValue) {
     }
   }
 }
-const slide = document.querySelector('#slider');
-const resetbtn = document.querySelector('#reset');
-const label = document.querySelector('#slideLable');
-label.innerHTML = `${slide.value}X${slide.value}`;
-slide.oninput = function() {
-  label.innerHTML = `${this.value}X${this.value}`;
-};
-let color = "black";
-const container = document.querySelector(".container");
+function Reset() {
+ while (container.childNodes.length>0) {
+    container.removeChild(container.firstChild)
+  }
+  
+
+ 
+}
 function ChangeBackgroundColor(event) {
   const div = event.target;
   div.style.backgroundColor = color;
 }
-const btn = document.querySelector("#btn");
-btn.onclick = function () {
-  const SelectedNumber = prompt("Select a number from 1 to 100");
-  const SquareNumber = parseInt(SelectedNumber);
-  if (SelectedNumber < 0 || SelectedNumber > 100) {
-    alert("The selected number is not in the range");
-  }
-  if (isNaN(SelectedNumber)) {
-    alert("Please select a valid number");
-  } else {
-    console.log(SquareNumber);
-    NewDiv(container, SquareNumber);
 
+
+const slide = document.querySelector('#slider');
+const resetbtn = document.querySelector('#reset');
+const label = document.querySelector('#slideLable');
+const container = document.querySelector(".container");
+const Sketch = document.querySelectorAll("#Sketch");
+let color = "black";
+label.innerHTML = `${slide.value}X${slide.value}`;
+
+NewDiv(container,slide.value);
+Sketch.forEach((div) => {
+  div.addEventListener("mouseenter", ChangeBackgroundColor);
+});
+
+
+slide.oninput = function() {
+  
+  label.innerHTML = `${this.value}X${this.value}`;
+  Reset();
+  NewDiv(container,this.value);
     const Sketch = document.querySelectorAll("#Sketch");
     Sketch.forEach((div) => {
       div.addEventListener("mouseenter", ChangeBackgroundColor);
     });
-  }
-};
+    };
 
+;
+
+
+
+    
+ 
