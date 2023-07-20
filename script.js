@@ -19,7 +19,7 @@ function Reset() {
 }
 function ChangeBackgroundColor(event) {
   const div = event.target;
-  div.style.backgroundColor = color;
+  div.style.backgroundColor = color.value;
 }
 
 
@@ -28,8 +28,10 @@ const resetbtn = document.querySelector('#reset');
 const label = document.querySelector('#slideLable');
 const container = document.querySelector(".container");
 
-let color = "black";
+const color = document.querySelector('#color');
 label.innerHTML = `${slide.value}X${slide.value}`;
+
+color.addEventListener("change", ChangeBackgroundColor);
 
 NewDiv(container,slide.value);
 const Sketch = document.querySelectorAll("#Sketch");
