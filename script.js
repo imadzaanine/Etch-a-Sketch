@@ -13,9 +13,12 @@ function Reset() {
  while (container.childNodes.length>0) {
     container.removeChild(container.firstChild)
   }
+}
+function DeleteBackgroundColor() {
+  Sketch.forEach((div) => {
+  div.style.removeProperty("background-color");
+});
   
-
- 
 }
 function ChangeBackgroundColor(event) {
   const div = event.target;
@@ -51,7 +54,7 @@ slide.oninput = function() {
       div.addEventListener("mouseenter", ChangeBackgroundColor);
     });
     };
-;
+resetbtn.addEventListener("click", DeleteBackgroundColor);
 
 
 
